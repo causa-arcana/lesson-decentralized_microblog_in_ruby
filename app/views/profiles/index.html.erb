@@ -1,0 +1,9 @@
+<h1>Profiles</h1>
+
+<% if @profiles.present? %>
+  <ul>
+    <% @profiles.each do |profile| %>
+      <li><%= link_to profile.full_name, profile %></li>
+    <% end %>
+  </ul>
+<% end %>
