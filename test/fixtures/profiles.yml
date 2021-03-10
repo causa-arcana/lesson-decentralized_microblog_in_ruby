@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: Alex
+  last_name: Kotov
+  description: Founder
+
+two:
+  first_name: Oleg
+  last_name: Ivanov
+  description: Guy
