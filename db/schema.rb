@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_092955) do
+ActiveRecord::Schema.define(version: 2021_03_10_102531) do
+
+  create_table "followships", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "subject_profile_id", null: false
+    t.integer "object_profile_id", null: false
+    t.index ["object_profile_id"], name: "index_followships_on_object_profile_id"
+    t.index ["subject_profile_id", "object_profile_id"], name: "index_followships_on_subject_profile_id_and_object_profile_id", unique: true
+    t.index ["subject_profile_id"], name: "index_followships_on_subject_profile_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -29,5 +39,7 @@ ActiveRecord::Schema.define(version: 2021_03_10_092955) do
     t.string "description"
   end
 
+  add_foreign_key "followships", "profiles", column: "object_profile_id"
+  add_foreign_key "followships", "profiles", column: "subject_profile_id"
   add_foreign_key "posts", "profiles"
 end
