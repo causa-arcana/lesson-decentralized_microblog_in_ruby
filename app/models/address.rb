@@ -18,10 +18,10 @@ class Address < ApplicationRecord
   end
 
   def add_to_wallet
-    AddAddressToWallet.perform_later self unless added_to_wallet?
+    AddAddressToWalletJob.perform_later self unless added_to_wallet?
   end
 
   def update_op_return
-    UpdateAddressOpReturn.perform_later self if update_op_return?
+    UpdateAddressOpReturnJob.perform_later self if update_op_return?
   end
 end
