@@ -1,0 +1,11 @@
+<h1><%= @profile.full_name %></h1>
+
+<p><%= @profile.description %></p>
+
+<% if @profile.posts.present? %>
+  <ul>
+    <% @profile.posts.each do |post| %>
+      <li><%= post.text %></li>
+    <% end %>
+  </ul>
+<% end %>
