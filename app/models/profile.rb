@@ -9,6 +9,16 @@ class Profile < ApplicationRecord
            class_name: 'Followship',
            foreign_key: :object_profile_id
 
+  has_many :followed_profiles,
+           class_name: 'Profile',
+           through: :outgoing_followships,
+           source: :object_profile
+
+  has_many :following_profiles,
+           class_name: 'Profile',
+           through: :incoming_followships,
+           source: :subject_profile
+
   def full_name
     [first_name, last_name].map(&:presence).compact.join(' ').presence ||
       "Profile#{" ##{id}" if id.present?}"
