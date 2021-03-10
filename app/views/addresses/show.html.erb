@@ -1,0 +1,27 @@
+<h1>Address</h1>
+
+<dl>
+  <dt><%= Address.human_attribute_name :value %></dt>
+  <dd><%= @address.value %></dd>
+
+  <dt><%= Address.human_attribute_name :added_to_wallet %></dt>
+  <dd><%= @address.added_to_wallet %></dd>
+
+  <dt><%= Address.human_attribute_name :op_return_value %></dt>
+  <dd>
+    <% if @address.op_return_value.nil? %>
+      <i>None</i>
+    <% else %>
+      <%= @address.op_return_value %>
+    <% end %>
+  </dd>
+
+  <dt><%= Address.human_attribute_name :op_return_updated_at %></dt>
+  <dd>
+    <% if @address.op_return_updated_at %>
+      <%= localize @address.op_return_updated_at %>
+    <% else %>
+      <i>Never</i>
+    <% end %>
+  <dd>
+</dl>

@@ -1,0 +1,9 @@
+<h1>Addresses</h1>
+
+<% if @addresses.present? %>
+  <ul>
+    <% @addresses.each do |address| %>
+      <li><%= link_to address.value, address %></li>
+    <% end %>
+  </ul>
+<% end %>
