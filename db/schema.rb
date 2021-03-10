@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_03_10_092955) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "profile_id", null: false
     t.string "text", null: false
+    t.datetime "published_at", null: false
     t.index ["profile_id"], name: "index_posts_on_profile_id"
   end
 
