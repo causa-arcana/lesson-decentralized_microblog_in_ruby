@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_092513) do
+ActiveRecord::Schema.define(version: 2021_03_10_092955) do
+
+  create_table "posts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "profile_id", null: false
+    t.string "text", null: false
+    t.index ["profile_id"], name: "index_posts_on_profile_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -20,4 +28,5 @@ ActiveRecord::Schema.define(version: 2021_03_10_092513) do
     t.string "description"
   end
 
+  add_foreign_key "posts", "profiles"
 end
