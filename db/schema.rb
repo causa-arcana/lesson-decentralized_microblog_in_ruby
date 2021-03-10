@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_102531) do
+ActiveRecord::Schema.define(version: 2021_03_10_111839) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "value", null: false
+    t.boolean "added_to_wallet", default: false, null: false
+    t.string "op_return_value"
+    t.datetime "op_return_updated_at"
+    t.index ["value"], name: "index_addresses_on_value", unique: true
+  end
 
   create_table "followships", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
