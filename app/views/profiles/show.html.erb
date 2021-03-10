@@ -1,5 +1,13 @@
 <h1><%= @profile.full_name %></h1>
 
+<p>
+  <%= @profile.following_profiles.count %>
+  Followers
+  &#8226;
+  <%= @profile.followed_profiles.count %>
+  Following
+</p>
+
 <p><%= @profile.description %></p>
 
 <% @profile.posts.each do |post| %>
