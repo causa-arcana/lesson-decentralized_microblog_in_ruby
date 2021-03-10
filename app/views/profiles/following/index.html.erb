@@ -1,0 +1,11 @@
+<div class="my-4">
+  <strong>&#10094;&nbsp;<%= link_to @profile.full_name, @profile %></strong>
+</div>
+
+<% if @profile.followed_profiles.present? %>
+  <ul>
+    <% @profile.followed_profiles.each do |followed_profile| %>
+      <li><%= link_to followed_profile.full_name, followed_profile %></li>
+    <% end %>
+  </ul>
+<% end %>

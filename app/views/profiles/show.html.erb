@@ -1,11 +1,11 @@
 <h1><%= @profile.full_name %></h1>
 
 <p>
-  <%= @profile.following_profiles.count %>
-  Followers
+  <%= link_to "#{@profile.following_profiles.count} Followers",
+              profile_followers_path(@profile) %>
   &#8226;
-  <%= @profile.followed_profiles.count %>
-  Following
+  <%= link_to "#{@profile.followed_profiles.count} Following",
+              profile_following_index_path(@profile) %>
 </p>
 
 <p><%= @profile.description %></p>
